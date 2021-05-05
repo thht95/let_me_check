@@ -1,0 +1,21 @@
+{
+  "name": "Checked",
+  "description": "You will never miss checkin and checkout anymore",
+  "version": "0.0.1",
+  "browser_action": {
+    "default_title": "Unleash the unicorn dust!",
+    "default_icon": "checked.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["jquery-3.6.0.min.js", "background.js"]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "manifest_version": 2
+}
