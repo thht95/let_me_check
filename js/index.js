@@ -39,7 +39,7 @@ if (location.hostname == "wsm.zinza.com.vn") {
           if ($(".float-right > a").length > 0) {
             href = $(".float-right > a")[0].href;
             $.ajax({
-              type: "POST",
+              type: "PATCH",
               url: href,
               success: function() {
                 alert("success");
