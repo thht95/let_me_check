@@ -4,7 +4,7 @@ storage = chrome.storage;
 if (location.hostname == "wsm.zinza.com.vn") {
   today = current_date.getDate();
   index = today - 1;
-  window.onload = function () {
+  $(document).ready(function () {
     today_cell = $("td.current-month:not(.past)").first();
     times = $(today_cell).find(".checktime").children().length;
     if (times == 0) {
@@ -14,8 +14,11 @@ if (location.hostname == "wsm.zinza.com.vn") {
           $.ajax({
             type: "POST",
             url: "https://wsm.zinza.com.vn/user/working_times",
-            success: function() {
-              alert("success");
+            success: function () {
+              alert("Checkin success. Reload browser pls!");
+            },
+            error: function () {
+              alert("Something went wrong. Pls checkin manually");
             }
           });
 
@@ -41,8 +44,11 @@ if (location.hostname == "wsm.zinza.com.vn") {
             $.ajax({
               type: "PATCH",
               url: href,
-              success: function() {
-                alert("success");
+              success: function () {
+                alert("Checkout success. Reload browser pls!");
+              },
+              error: function () {
+                alert("Something went wrong. Pls checkout manually");
               }
             });
 
@@ -56,7 +62,7 @@ if (location.hostname == "wsm.zinza.com.vn") {
       storage.local.set({ checked_out: true }, function () { });
       storage.local.set({ last_checked_out_day: current_date.getDate() }, function () { });
     }
-  };
+  });
 }
 else {
   homnaylathumay = current_date.getDay();
