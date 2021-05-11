@@ -16,7 +16,7 @@
         "<all_urls>"
       ],
       "js": [
-        "lib/jquery-3.6.0.min.js",
+        "lib/jquery-3.6.0.js",
         "js/index.js"
       ]
     }
