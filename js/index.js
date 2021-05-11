@@ -74,6 +74,7 @@ else {
 
       console.log("checked_in", checked_in);
       console.log("last_checked_in_day", last_checked_in_day);
+      console.log(last_checked_in_day == current_date.getDate());
 
       if (last_checked_in_day == current_date.getDate() && checked_in) {
         //thank god. i dont have to do anything here
@@ -98,10 +99,10 @@ else {
 
         if (last_checked_out_day != current_date.getDate()) {
           if (checked_out != false) {
-            checkin_confirm = confirm("Hôm nay bạn đã check in chưa?");
+            checkin_confirm = confirm("Hôm nay bạn đã check out chưa?");
             if (checkin_confirm) {
-              storage.local.set({ checked_in: true }, function () { });
-              storage.local.set({ last_checked_in_day: current_date.getDate() }, function () { });
+              storage.local.set({ checked_out: true }, function () { });
+              storage.local.set({ last_checked_out_day: current_date.getDate() }, function () { });
             }
           }
         }
