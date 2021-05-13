@@ -37,7 +37,7 @@ if (location.hostname == "wsm.zinza.com.vn") {
         format_time_check_in.setHours(hour_check_in);
         timediff = (current_date - format_time_check_in) / 3600000;
 
-        if (timediff > 9) {
+        if (timediff > 9 || current_date.getHours() >= 18) {
           cf_checkout = confirm("Hôm nay chưa checkout. Bạn có muốn checkout luôn không?");
           if (cf_checkout) {
             if ($(".float-right > a").length > 0) {
