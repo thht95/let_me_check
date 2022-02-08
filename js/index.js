@@ -1,7 +1,7 @@
 current_date = new Date();
 storage = chrome.storage;
 
-if (location.hostname == "wsm.zinza.com.vn") {
+if (location.href == "https://wsm.zinza.com.vn/") {
   today = current_date.getDate();
   index = today - 1;
   $(document).ready(function () {
@@ -68,7 +68,8 @@ if (location.hostname == "wsm.zinza.com.vn") {
 }
 else {
   homnaylathumay = current_date.getDay();
-  if (![0, 6].includes(homnaylathumay)) {
+  baygiolamaygio = current_date.getHours();
+  if (![0, 6].includes(homnaylathumay) && baygiolamaygio > 7) {
     //kiem tra checkin
     storage.local.get(null, function (data) {
       var checked_in = data.checked_in;
